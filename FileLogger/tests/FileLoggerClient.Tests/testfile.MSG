@@ -1,0 +1,4 @@
+*** HEADER OF THE FILE, ignore the record ***
+           TAT out of range. Expected : [0.0;0.0] - Current 25.5: 
+REC#     1 SNPS6311 ** ERROR **  see above  
+COMPLETED == ERROR 1  CALCULATED  0 PROCESSED 1 in 0.00 seconds - HCTM_LSF version - version 5.0.9 

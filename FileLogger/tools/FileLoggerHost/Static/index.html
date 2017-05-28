@@ -1,0 +1,20 @@
+﻿<html>
+<head><title>Awesome Title Here</title></head>
+<body>
+Log File
+<!-- ReSharper disable once Html.PathError -->
+<form action="../files" enctype="multipart/form-data" method="post">
+    <p>
+        Source: <input type="text" name="source"/><br/>
+        Name: <input type="text" name="name"/><br/>
+        MinutesToLive: <input type="text" name="minutesToLive"/><br/>
+        Select A File:<br>
+        <input type="file" name="file">
+    </p>
+    <div>
+        <input type="submit" value="Send">
+    </div>
+</form>
+<a href="search.html">Search Files</a>
+</body>
+</html>

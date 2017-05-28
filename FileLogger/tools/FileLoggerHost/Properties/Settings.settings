@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FileLoggerHost.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PollingInMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="HostAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://*:8080/filelogger</Value>
+    </Setting>
+    <Setting Name="PathToTempDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">temp</Value>
+    </Setting>
+    <Setting Name="StorageLocation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">files</Value>
+    </Setting>
+    <Setting Name="StaticFilesLocation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">static</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

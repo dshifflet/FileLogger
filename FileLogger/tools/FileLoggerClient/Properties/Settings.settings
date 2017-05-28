@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FileLoggerClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BaseUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://127.0.0.1/filelogger</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

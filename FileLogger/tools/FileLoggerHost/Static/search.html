@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+    <title></title>
+    <style>
+        .clickable { cursor: pointer;}         
+        table { border: 1px solid black;}
+        td { border: 1px solid black;}
+    </style>
+</head>
+<body>
+<div>
+    <a href="index.html">Upload a File</a><br/>
+    Search:
+    <input type="text" id="txtSearch"/>
+    <input type="button" id="btnSearch" value="Search"/>
+    <br/>
+</div>
+<div id="searchResults">
+    Nothing to Show
+</div>
+
+
+</body>
+<script type="text/javascript">
+    //bind stuff
+
+
+    window.onload = function () {
+
+        //bind the search button
+        var searchField = document.getElementById("btnSearch");
+        var resultList = document.getElementById("searchResults");
+
+        this.search = function () {
+            var val = document.getElementById("txtSearch");            
+            resultList.updateSearchResults(val.value);
+        }
+
+        searchField.onclick = function() {
+            search();
+        }
+
+        document.getElementById("txtSearch")
+            .addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    search();
+                }
+                
+            });
+
+
+        resultList.updateSearchResults = function(searchText) {
+
+            var searchResults = document.getElementById("searchResults");
+
+            if (searchText.length === 0) {
+                 searchResults.innerHTML = "";
+                 return;
+            }
+
+            //hit the end point update the table...
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.responseText);
+                    
+                    searchResults.innerHTML = "";
+                    
+                    var tbl = document.createElement("table");
+                    tbl.innerHTML = "<tr><td>Source</td><td>Name</td><td>Created</td></tr>";
+                    searchResults.appendChild(tbl);
+                    for (var i = 0; i < response.length; i++) {
+                        var file = response[i];                       
+                        tbl.innerHTML += "<tr class='clickable' data-href='../files/" + file.Id + "'><td>" + file.Source + "</td><td>" + file.Name + "</td><td>" + file.CreatedDateUtc + "</td></tr>";                        
+                    }                   
+
+                    var clickables = document.getElementsByClassName("clickable");
+                    for (var j = 0; j < clickables.length; j++) {
+                        var clickable = clickables[j];
+                        clickable.addEventListener("click", function () {                            
+                            window.location = this.getAttribute("data-href");
+                        });
+                    }
+                }
+            };
+
+            xhttp.open("GET", "../files/search/" +
+                encodeURI(searchText), true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
+        };
+    }
+
+
+</script>
+</html>
